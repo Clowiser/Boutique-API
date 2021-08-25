@@ -1,0 +1,146 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    margin: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/galaxie.jpg);
+    width: 100%;
+    height: auto;
+    
+}
+
+.nav_bar a{
+    font-size: 25px;
+    color:#fff;
+    text-decoration: none;
+}
+
+#titre
+{
+    display: flex;
+    justify-content: center;
+}
+
+.etoile
+{
+    margin-top: 5%;
+   width: 5%;
+   height: 5%;
+}
+
+.info{
+    text-align: center;
+    padding: 3%;
+}
+
+.nav_bar ol{
+    display: flex;
+    justify-content: space-around;
+    padding: 2%;
+    border-top: solid #fff;
+    list-style: none;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+    padding: 3%;
+    font-size: 4em;
+}
+
+a:link{
+    color:#fff;
+    text-decoration: none;
+}
+
+p{
+    font-size: 20px;
+}
+
+.img{
+    height:250px;
+}
+
+.contain{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    padding: 1%;
+    margin : 1% 9% 1% 10%;
+    border: solid rgb(180, 126, 241) 2px;
+    /*box-shadow: 0 1px px 1px rgba(130, 9, 243, 0.397), rgba(9, 118, 243, 0.397);
+    /*border-image: solid linear-gradient(#e32f8a, #173c4c) 30;*/
+}
+
+.contain_center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 5% 2% 5% 0%;
+    margin : 1% 9% 1% 10%;
+    border: solid rgb(180, 126, 241) 2px;
+    /*box-shadow: 0 1px px 1px rgba(130, 9, 243, 0.397), rgba(9, 118, 243, 0.397);
+    /*border-image: solid linear-gradient(#e32f8a, #173c4c) 30;*/
+}
+
+#ajout{
+    display: flex;
+    text-align: center;
+    padding: 1% 0% 2% 4%;
+    background-color: #efefef;
+    border-radius: 2%;
+    width: 25%;
+    margin-left: 35%; 
+    margin-bottom: 5%; 
+    margin-top: 4%;
+}
+
+.justi{
+    text-align: justify;
+    width: 20%;
+}
+
+.champs{
+    margin : 5%;
+}
+
+.affiche{
+    padding: 1% 3% 2% 2%;
+    background-color: #efefef;
+    border-radius: 2%;
+    width: 25%;
+    margin-left: 35%; 
+    margin-bottom: 5%; 
+    margin-top: 4%;
+}
+
+footer p{
+    text-align: left;
+    margin-left: 1%;
+    color:#fff;
+    font-size: 18px;
+}
+
+footer{
+    padding : 2%;
+    margin: 0;
+    background-image: url(../img/galaxie.jpg);
+}
+
+.img_affiche
+{
+    width:30%;
+}
+
+.remplis{
+    color : blueviolet;
+    text-align: center;
+    margin-top: 4%;
+    font-size: 2em;;
+}
