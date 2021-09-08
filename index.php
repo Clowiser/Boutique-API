@@ -6,7 +6,7 @@ include("html/header.php"); // ou include 'header.php'; include = on affiche ; l
 
     if (isset($_GET['page'])){ // moyen pour vérifier que notre variable existe $_Get['page'] - isset détermine si une variable est déclarée et est différente de null
     if ($_GET['page'] == 'index.php'){ //si page = index alors affiche accueil (index=accueil) + méthode GET pour transporter le paramètre dans la chaîne d’URL
-        include ("accueil.php");
+        include ("html/accueil.php");
         echo '<title>Accueil de la Boutique des étoiles</title>';
     }
     if ($_GET['page'] == 'catalogue.php'){ // $_GET : variable d'environnement 
