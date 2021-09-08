@@ -1,6 +1,6 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+');
-    $reponse = $bdd->query('SELECT * FROM articles');
+
+$reponse = $bdd->query('SELECT * FROM articles');
 
     while ($donnees = $reponse->fetch()){
 ?>
