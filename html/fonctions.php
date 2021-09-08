@@ -1,7 +1,7 @@
 <?php
 // Afficher les articles, en manière fonction, via la BDD
 function afficheArticle($article){ // pour afficher les articles spécifiquement celui qui est sélectionné
-$bdd = new PDO('mysql:host=localhost;dbname=bdds;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+');
     $reponse = $bdd->query("SELECT * FROM articles WHERE idArticles='$article'"); // réquète sélectionne tout dans la table articles ou l'idArticles=$article
 
     while ($donnees = $reponse->fetch()){
@@ -16,7 +16,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=bdds;charset=utf8', 'root', '');
 
 // Création du panier via la BDD
 function affichePanier($panier){ 
-    $bdd = new PDO('mysql:host=localhost;dbname=bdds;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+');
     $reponse = $bdd->query("SELECT * FROM articles WHERE idArticles='$panier'"); // réquète sélectionne tout dans la table articles ou l'idArticles=$panier
 
     while ($donnees = $reponse->fetch()){
@@ -31,7 +31,7 @@ function affichePanier($panier){
 
 // Total du panier quand on modifie la quantité | revoir la seconde partie pour la modification de la quantité
 function totalPanier($id,$quantite) { 
-    $bdd = new PDO('mysql:host=localhost;dbname=bdds;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+');
     $reponse = $bdd->query("SELECT * FROM articles WHERE idArticles='$id'"); // réquète sélectionne tout dans la table articles ou l'idArticles=$article
 
     while ($donnees = $reponse->fetch()){
@@ -47,7 +47,7 @@ function totalPanier($id,$quantite) {
 
 <?php
 function totaltotal(){
-    $bdd = new PDO('mysql:host=localhost;dbname=bdds;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+');
     $reponse = $bdd->query("SELECT * FROM articles");
     $montanttotal = 0; // cette var nous sert à calculer le montant total des articles
     while ($donnees = $reponse->fetch()){
