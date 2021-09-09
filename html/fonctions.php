@@ -84,4 +84,12 @@ function modifQuantite($id,$quantite,$ajout){ // fonction pour modifier la quant
 function viderPanier($panier) { // variable pour vider le panier
     unset($_SESSION['panier']); // unset : supprime le panier
 }
+function getProducts()
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $reponse = $bdd->query("SELECT * FROM articles");
+    $donnees = $reponse->fetchAll();
+    header('Content-Type: application/json');
+    echo json_encode($donnees, JSON_PRETTY_PRINT);
+}
 ?>
