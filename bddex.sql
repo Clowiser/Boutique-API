@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 08 sep. 2021 à 11:54
+-- Généré le : jeu. 09 sep. 2021 à 12:21
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -48,12 +48,12 @@ CREATE TABLE IF NOT EXISTS `articles` (
 INSERT INTO `articles` (`idArticles`, `descArticle`, `prixArticle`, `poidsArticle`, `imgArticle`, `nomArticle`, `quantiteDispo`, `en_vente`, `categories`) VALUES
 (123, 'Une jolie bouteille aux couleurs de l\'espace pour transporter toutes vos boissons préférées !', 105, 1, 'https://m.media-amazon.com/images/I/71qUltY+a3L._AC_SX425_.jpg', 'Bouteille Isotherme', 110, 'oui', 1),
 (456, 'Un joli mug personnalisable avec une étoile pour illuminer vos journées !', 10.5, 500, 'https://www.tutete.com/tienda/images/5d023cfb13fe5-taza_estrella_aqua_tutete_3_l.jpg', 'Mug', 1, 'oui', 1),
-(789, 'Des couverts pour vous accompagner dans vos festins cosmiques !', 10.5, 500, 'https://www.crealoca.com/wp-content/uploads/2020/01/Couvert-bois-etoile-dor%C3%A9e.png', 'Couverts des étoiles', 1, 'non', 1),
+(789, 'Des couverts pour vous accompagner dans vos festins cosmiques !', 10.5, 500, 'https://www.crealoca.com/wp-content/uploads/2020/01/Couvert-bois-etoile-dor%C3%A9e.png', 'Couverts des étoiles', 1, 'non', 2),
 (187, 'Une assiette en or qui vous rappelera la lumière des étoiles', 13, 500, 'https://la-boite-a-dragees.fr/wp-content/uploads/2019/10/Assiette-%C3%A9toile-or.jpg', 'Assiette Etoile', 0, 'oui', 2),
-(266, 'Des verres pour savourer votre boisson dans l\'univers', 50, 1.2, 'https://boutique-hop.s3-eu-west-1.amazonaws.com/cache/49/51/49519721a2359757efd173b1076ab961.jpg', 'Verres de l\'Univers', 2, 'oui', 2),
-(369, 'Pour rester propre et brillante comme une étoile', 500, 1.2, 'https://www.hollyparty.com/ori-serviettes-en-papier-forme-etoile-x20-3528.jpg', 'Serviettes Etoiles', 5, 'oui', 3),
+(266, 'Des verres pour savourer votre boisson dans l\'univers', 50, 1.2, 'https://boutique-hop.s3-eu-west-1.amazonaws.com/cache/49/51/49519721a2359757efd173b1076ab961.jpg', 'Verres de l\'Univers', 2, 'oui', 1),
+(369, 'Pour rester propre et brillante comme une étoile', 500, 1.2, 'https://www.hollyparty.com/ori-serviettes-en-papier-forme-etoile-x20-3528.jpg', 'Serviettes Etoiles', 5, 'oui', 2),
 (790, 'Une bouteille au logo étoilé pour retrouver toutes vos boissons préférées !', 105, 1, 'https://www.cdiscount.com/pdt2/5/3/6/1/700x700/hom8435309138536/rw/bouteille-en-verre-1-lit-etoile.jpg', 'Bouteille en Verre', 10, 'oui', 1),
-(791, 'Des dessous de plats de l\'espace pour couvrir vos tables', 13, 500, 'https://d1lze4pahqmfde.cloudfront.net/https://dds-images.s3.eu-west-3.amazonaws.com/annonces/808a728be7fe20a5f396bc0270eb79b4a6bca179.jpg?twic=v1/cover=1:1', 'Dessous de plats Etoile', 0, 'oui', 2);
+(791, 'Des dessous de plats de l\'espace pour couvrir vos tables', 13, 500, 'https://d1lze4pahqmfde.cloudfront.net/https://dds-images.s3.eu-west-3.amazonaws.com/annonces/808a728be7fe20a5f396bc0270eb79b4a6bca179.jpg?twic=v1/cover=1:1', 'Dessous de plats Etoile', 0, 'oui', 3);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ INSERT INTO `articles` (`idArticles`, `descArticle`, `prixArticle`, `poidsArticl
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `idCategories` int(11) NOT NULL AUTO_INCREMENT,
-  `nomCategories` int(11) NOT NULL,
+  `nomCategories` varchar(50) NOT NULL,
   PRIMARY KEY (`idCategories`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`idCategories`, `nomCategories`) VALUES
-(7, 3),
-(6, 2),
-(5, 1);
+(1, 'Contenants liquide'),
+(2, 'Service de table'),
+(3, 'Supports');
 
 -- --------------------------------------------------------
 
@@ -163,6 +163,26 @@ INSERT INTO `commandes_articles` (`idCommandes_Articles`, `quantite`, `idCommand
 (331, 1, 951, 369),
 (332, 2, 951, 123),
 (333, 3, 951, 266);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `token`
+--
+
+DROP TABLE IF EXISTS `token`;
+CREATE TABLE IF NOT EXISTS `token` (
+  `idToken` int(11) NOT NULL AUTO_INCREMENT,
+  `Token` varchar(255) NOT NULL,
+  PRIMARY KEY (`idToken`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `token`
+--
+
+INSERT INTO `token` (`idToken`, `Token`) VALUES
+(1, 'eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTYzMTE4ODEwNSwiaWF0IjoxNjMxMTg4MTA1fQ.8vZkI4qv8nr8pS5QR1RCbY96VcMP7RGbWFiowvGF3Pk');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

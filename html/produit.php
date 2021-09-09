@@ -1,6 +1,7 @@
 <?php
+require ('fonctions.php');
+getHistoComm();
 
-require('fonctions.php');
 getproductsPS();
 
 ?>

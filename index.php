@@ -29,7 +29,7 @@ include("html/header.php"); // ou include 'header.php'; include = on affiche ; l
         echo '<title>Votre panier </title>'; 
     }
     }else{
-        include("html/accueil.php");
+        include ("html/accueil.php");
     }
 
 include("html/footer.php"); // idem que le header
