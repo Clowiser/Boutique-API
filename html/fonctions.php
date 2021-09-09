@@ -93,7 +93,7 @@ function getHistoComm(){ // on créait une fonction que l'on nomme dans l'idée 
     $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); 
     // Gestion des erreurs : PDO::ATTR_ERRMODE : rapport d'erreurs => PDO::ERRMODE_EXCEPTION : qui émet une exception
 
-    $reponse = $bdd->query("SELECT commandes.idCommandes, dateCommandes, idClient,  nomArticle, SUM(articles.prixArticle) as PrixTtcArticles, SUM(articles.prixArticle)/1.20 as PrixHtArticles, SUM(quantite) as nombreArticles FROM commandes INNER JOIN commandes_articles ON commandes.idCommandes=commandes_articles.idCommandes INNER JOIN articles ON commandes_articles.idArticles=articles.idArticles GROUP BY idCommandes"); 
+    $reponse = $bdd->query("SELECT commandes.idCommandes, dateCommandes, idClient, nomArticle, SUM(articles.prixArticle) as PrixTtcArticles, SUM(articles.prixArticle)/1.20 as PrixHtArticles, SUM(quantite) as nombreArticles FROM commandes INNER JOIN commandes_articles ON commandes.idCommandes=commandes_articles.idCommandes INNER JOIN articles ON commandes_articles.idArticles=articles.idArticles GROUP BY idCommandes");
     
     // on créé la réponse = ou l'on va chercher la BDD et le langage SQL que l'on veut
 
@@ -113,7 +113,7 @@ function getProducts()
 function getProductsPS() ////PS = prix stock
 {
     $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $reponse = $bdd->query("SELECT prixArticle, quantiteDispo FROM articles");
+    $reponse = $bdd->query("SELECT idArticles, prixArticle, quantiteDispo FROM articles");
 
     $donnees = $reponse->fetchAll(PDO::FETCH_ASSOC);
     header('Content-Type: application/json');
