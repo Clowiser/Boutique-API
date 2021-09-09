@@ -1,6 +1,6 @@
 <?php
 
 require('fonctions.php');
-getproducts();
+getproductsPS();
 
 ?>

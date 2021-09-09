@@ -87,7 +87,7 @@ function viderPanier($panier) { // variable pour vider le panier
 
 //// 
 
-function getProducts()
+function getProductsPS() ////PS = prix stock
 {
     $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     $reponse = $bdd->query("SELECT prixArticle, quantiteDispo FROM articles");
