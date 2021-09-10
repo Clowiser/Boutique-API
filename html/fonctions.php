@@ -90,11 +90,11 @@ function viderPanier($panier) { // variable pour vider le panier
 
 function getHistoComm(){ // on créait une fonction que l'on nomme dans l'idée de l'objectif
     //PDO => extension définissant l'interface pour accéder à une BDD avec PHP - Orientée OBJET
-    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); 
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     // Gestion des erreurs : PDO::ATTR_ERRMODE : rapport d'erreurs => PDO::ERRMODE_EXCEPTION : qui émet une exception
 
     $reponse = $bdd->query("SELECT commandes.idCommandes, dateCommandes, idClient, GROUP_CONCAT(nomArticle) as article, SUM(articles.prixArticle) as PrixTtcArticles, SUM(articles.prixArticle)/1.20 as PrixHtArticles, SUM(quantite) as nombreArticles FROM commandes INNER JOIN commandes_articles ON commandes.idCommandes=commandes_articles.idCommandes INNER JOIN articles ON commandes_articles.idArticles=articles.idArticles GROUP BY idCommandes");
-    
+
     // on créé la réponse = ou l'on va chercher la BDD et le langage SQL que l'on veut
 
     $donnees = $reponse->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC => affiche uniquement les données sous forme de prixarticles = 105 et non 0(index) = 105
@@ -129,4 +129,19 @@ function getCat($cat)
     header('Content-Type: application/json');
     echo json_encode($donnees, JSON_PRETTY_PRINT);
 }
+
+function checkToken($token)
+{
+    global $access;
+    $i=0;
+    $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $reponse = $bdd->query("SELECT token FROM token");
+    while ($donnees = $reponse->fetchAll(PDO::FETCH_ASSOC)){
+        if ($token == $donnees[$i]['token']) {
+            return $access = true;
+        }
+        $i++;
+    }
+}
+
 ?>
