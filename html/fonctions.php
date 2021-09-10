@@ -131,6 +131,7 @@ function getCat($cat)
 }
 
 function checkToken($token)
+
 {
     global $access;
     $i=0;
