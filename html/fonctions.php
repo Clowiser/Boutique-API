@@ -132,16 +132,13 @@ function getCat($cat)
 
 function checkToken($token)
 {
-    global $access;
-    $i=0;
     $bdd = new PDO('mysql:host=localhost;dbname=bddex;charset=utf8', 'JessiRig', 'evolPHP2+', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $reponse = $bdd->query("SELECT token FROM token");
-    while ($donnees = $reponse->fetchAll(PDO::FETCH_ASSOC)){
-        if ($token == $donnees[$i]['token']) {
-            return $access = true;
-        }
-        $i++;
+    $reponse = $bdd->query("SELECT token FROM token WHERE token = '$token'");
+    $donnees = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($donnees)){
+        return true;
     }
 }
+
 
 ?>
