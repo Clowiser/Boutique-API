@@ -1,12 +1,7 @@
 <?php
 require('../html/fonctions.php');
 
-$access=false;
-
-if(isset($_GET['token'])) {
-    checkToken($_GET['token']);
-}
-if ($access){
+if (checkToken($_GET['token'])){
     if(isset($_GET['cat'])){
         getCat($_GET['cat']);
     }
